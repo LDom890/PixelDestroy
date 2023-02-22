@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.EventSystems;
 
 public class Shot : MonoBehaviour
 {
@@ -16,15 +17,20 @@ public class Shot : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            if(Time.time>shotRateTime)
+            if (Time.time > shotRateTime)
             {
                 GameObject newBullet;
 
-                newBullet = Instantiate(bullet,spawnPoint.position,spawnPoint.rotation);
+                newBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
                 newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
                 shotRateTime = Time.time + shotRate;
                 Destroy(newBullet, 2);
             }
         }
+    }
+
+    void Fire()
+    {
+        
     }
 }
