@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.EventSystems;
+using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class Shot : MonoBehaviour
 {
@@ -13,9 +16,24 @@ public class Shot : MonoBehaviour
 
     private float shotRateTime = 0;
 
+
+    [SerializeField] private float bullets = 3;
+    public TextMeshProUGUI text;
+    private bool TienesBalas = true;
+
+
+
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        text.text = "Balas " + bullets.ToString();
+
+       
+
+    }
+
+    public void Fire()
+    {
+        if (TienesBalas == true)
         {
             if (Time.time > shotRateTime)
             {
@@ -25,12 +43,21 @@ public class Shot : MonoBehaviour
                 newBullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
                 shotRateTime = Time.time + shotRate;
                 Destroy(newBullet, 2);
-            }
-        }
-    }
+                bullets--;
 
-    void Fire()
-    {
-        
+
+
+
+            }
+
+        }
+        if (bullets <= 0)
+        {
+            TienesBalas = false;
+        }
+        if (TienesBalas == false)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 }
