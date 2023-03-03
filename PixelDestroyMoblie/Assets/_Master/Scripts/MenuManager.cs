@@ -13,7 +13,6 @@ public class MenuManager : MonoBehaviour
 
 
 
-
     public void Restart()
    {
         Time.timeScale = 1f;
@@ -45,9 +44,10 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(1);
 
     }
-    public void NextLevel()
+    public void NextLevel(int indice)
     {
-        SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(indice+1);
 
     }
     public void Pausa()
