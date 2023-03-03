@@ -6,9 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-   public void Restart()
+    [SerializeField] private GameObject botonPausa;
+    [SerializeField] private GameObject menuPausa;
+
+
+
+
+
+
+    public void Restart()
    {
-        SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
     public void MainMenu()
@@ -16,14 +25,43 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(0);
 
     }
-    public void pause()
-    {
-        
-
-    }
     public void Exite()
     {
         Application.Quit();
+
+    }
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
+
+    }
+    public void Credits()
+    {
+        SceneManager.LoadScene(1);
+
+    }
+    public void Store()
+    {
+        SceneManager.LoadScene(1);
+
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(1);
+
+    }
+    public void Pausa()
+    {
+        Time.timeScale = 0f;
+        botonPausa.SetActive(false);
+        menuPausa.SetActive(true);
+
+    }
+    public void Reanudar()
+    {
+        Time.timeScale = 1f;
+        botonPausa.SetActive(true);
+        menuPausa.SetActive(false);
 
     }
 }

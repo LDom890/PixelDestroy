@@ -14,4 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Master/Scenes/Defeat.unity
     guid: 79f14925b966e884891ac980a50505bb
+  - enabled: 1
+    path: Assets/_Master/Scenes/Level2.unity
+    guid: 950d161274819c142ad53782f76fbc63
+  - enabled: 1
+    path: Assets/_Master/Scenes/Level3.unity
+    guid: f9cf15db293a8b046aff1b06e4d40b63
+  - enabled: 1
+    path: Assets/_Master/Scenes/Level4.unity
+    guid: f63ca84cc242b7e4eb7b68495a0e5c7d
+  - enabled: 1
+    path: Assets/_Master/Scenes/Level5.unity
+    guid: 586431e711d967c46aa121e9d9f09e6a
   m_configObjects: {}

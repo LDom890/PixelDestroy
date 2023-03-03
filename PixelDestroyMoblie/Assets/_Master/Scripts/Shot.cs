@@ -23,12 +23,12 @@ public class Shot : MonoBehaviour
 
 
 
+    [SerializeField] private GameObject menuEmptyBullets;
+
+
     private void Update()
     {
         text.text = "Balas " + bullets.ToString();
-
-       
-
     }
 
     public void Fire()
@@ -44,12 +44,7 @@ public class Shot : MonoBehaviour
                 shotRateTime = Time.time + shotRate;
                 Destroy(newBullet, 2);
                 bullets--;
-
-
-
-
             }
-
         }
         if (bullets <= 0)
         {
@@ -57,7 +52,13 @@ public class Shot : MonoBehaviour
         }
         if (TienesBalas == false)
         {
-            SceneManager.LoadScene(2);
+            EmptyBullets();
         }
+    }
+    public void EmptyBullets()
+    {
+        Time.timeScale = 0f;
+        menuEmptyBullets.SetActive(true);
+
     }
 }
